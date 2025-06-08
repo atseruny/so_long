@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atseruny <atseruny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anush <anush@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:27:22 by atseruny          #+#    #+#             */
-/*   Updated: 2025/03/31 19:43:29 by atseruny         ###   ########.fr       */
+/*   Updated: 2025/06/08 21:44:21 by anush            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,10 @@ int	map_name_valid(char *map)
 	i = 0;
 	while (map[i] != '\0' && map[i] != '.')
 		i++;
+	if (map[i] == '\0')
+		return (0);
 	if (map[i + 1] != 'b' && map[i + 2] == 'e' && map[i + 3] == 'r'
-		&& map[i] == '\0')
+		&& map[i + 4] != '\0')
 		return (0);
 	if ((open(map, O_RDONLY)) < 0)
 		return (0);
